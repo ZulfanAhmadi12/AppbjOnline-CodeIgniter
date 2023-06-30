@@ -1,0 +1,7 @@
+Sususan Templates
+- Header
+- topleftbar
+- indexcontent (untuk index)
+- footer
+- rightsidebar
+- js
