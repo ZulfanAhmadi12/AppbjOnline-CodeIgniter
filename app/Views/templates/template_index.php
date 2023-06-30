@@ -87,6 +87,15 @@
                 </a>
             </li>
 
+            <?php if(logged_in()) : ?>
+                <li class="side-nav-item">
+                    <a href="/ubah/password" class="side-nav-link">
+                        <i class="uil-lock-alt"></i>
+                        <span> Ubah Password </span>
+                    </a>
+                </li>
+            <?php endif; ?>
+
             <?php if(!in_groups('admin')) : ?>
                 <li class="side-nav-item">
                     <a href="/tabel/tambahdata" class="side-nav-link">
@@ -151,11 +160,6 @@
                 </li>
                 <?php endif; ?>
 
-                <li class="notification-list">
-                    <a class="nav-link end-bar-toggle" href="javascript: void(0);">
-                        <i class="dripicons-gear noti-icon"></i>
-                    </a>
-                </li>
 
             </ul>
             <button class="button-menu-mobile open-left">

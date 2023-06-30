@@ -30,6 +30,8 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/ubah/password', 'Home::ubahPassword');
+$routes->post('/updatepassword', 'Home::updatePassword');
 $routes->get('/Home/totalPerSatker', 'Home::totalPerSatker', ['filter' => 'role:admin']);
 $routes->get('/tabel/tambahdata', 'Tabel::tambahdata', ['filter' => 'role:satker']);
 $routes->get('tabel/export', 'Tabel::export');

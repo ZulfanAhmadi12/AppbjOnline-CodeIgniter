@@ -6,7 +6,7 @@ namespace App\Controllers;
 use App\Models\TotalModel;
 use App\Models\TabelModel;
 use Myth\Auth\Models\UserModel;
-
+use Myth\Auth\Password;
 
 class Home extends BaseController
 {
@@ -73,6 +73,45 @@ class Home extends BaseController
                     
 
         return view('home/index', $data);
+    }
+
+    public function ubahPassword(){
+
+    
+
+        return view('home/ubahPassword');
+    }
+
+    public function updatePassword(){
+        helper(['form']);
+        $rules = [
+            'password_lama' => "required",
+            'password' => "required|strong_password",
+            'konfirmasi_password' => "required|matches[password]"
+        ];
+
+        $messages = [
+            'password_lama.required' => 'Kata Sandi Lama Harus Di-isi',
+            'password.required' => 'Kata Sandi Baru Harus Di-isi',
+            'password.strong_password' => 'Kata Sandi Baru Terlalu Lemah',
+            'konfirmasi_password.required' => 'Konfirmasi Kata Sandi Baru Harus Di-isi',
+            'konfirmasi_password.matches' => 'Konfirmasi Kata Sandri Baru berbeda dengan Kata Sandi Baru',
+        ];
+        if($this->validate($rules, $messages)){
+            $user_id = user_id();
+            $userModel = new UserModel();
+    
+            $userModel->save([
+                'id' => $user_id,
+                'password_hash' => Password::hash($this->request->getVar('password'))
+            ]);
+            session()->setFlashdata('password_diubah', 'Password berhasil diubah.');
+            return redirect()->to('/home/index');
+
+        }else{
+            $data['validation'] = $this->validator;
+            return view('home/ubahPassword', $data);
+        }
     }
 
     public function calculation(){

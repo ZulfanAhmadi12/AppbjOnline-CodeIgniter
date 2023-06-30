@@ -5,6 +5,12 @@
 <div class="container-fluid">
 
 <!-- Start Content-->
+<?php if (session()->getFlashdata('password_diubah')) : ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?= session()->getFlashdata('password_diubah'); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+<?php endif; ?>
 <div>
 <img class="img-fluid" style="max-width: 100%; max-height: 100%; " src="<?= base_url(); ?>/assets/images/sisppbj.png">
 
