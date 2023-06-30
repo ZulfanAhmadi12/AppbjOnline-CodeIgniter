@@ -6,7 +6,7 @@ This website application is called 'Online Procurement Progress Reporting Applic
 ## Landing Page's Screenshot
 
 <figure>
-    <img src="https://github.com/ZulfanAhmadi12/AppbjOnline/blob/master/landingpage.png"
+    <img src="https://github.com/ZulfanAhmadi12/AppbjOnline/blob/master/landingpages.png"
          alt="Landing's Page" width="600" height="300">
     <figcaption>Screenshot of the Main Page.</figcaption>
 </figure>
